@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="stylech.css">
+        <script type="text/javascript" src="script.js"></script>
+        
+               
+    </head>
+
+    <body>
+
+        <div class="logo">
+
+            <img src="imagenes/Logo1.png" alt="Logo de Alura" class="logoimg">
+                                 
+    
+    </div>  
+        <div class="contenedor-principal">       
+
+           
+                <div class="panel1">
+
+                            
+                            <input class="texto" type="text" id="textoEncriptar" placeholder="Ingrese el texto aquí" autofocus>
+                            <input type="button" id="limpiarTexto" value="Limpiar Texto" disabled>
+                                                                                 
+                            
+                </div>
+
+                <div class="panel2">
+                    
+                    <img src="imagenes/muneco.png" alt="" id="imgDesencriptar">
+                     <h1 id="textoDesencriptar">Aquí se muestra el texto Encriptado/Desencriptado:</h1>
+                    <textarea cols="70" rows="10"  id="resultadoEncriptado" class="resultado-encriptar" required></textarea> 
+                    <input type="submit" id="copiar" value="Copiar" class="botoncopiar">
+                    
+        </div>
+
+                <div class="panel3">
+
+                            
+                             <p id="etiquetas">&#10016; Solo letras minúsculas y sin acentos</p>
+                            <input type="button" id="encriptar" value="Encriptar" class="boton">
+
+                            <input type="button" id="desencriptar" value="Desencriptar" class="boton" disabled>
+
+                            
+                </div>
+
+          
+        </div>    
+
+                    
+   
+
+    </body>
+
+    <script>
+
+        var btnE = document.querySelector("#encriptar");
+        btnE.onclick=encriptar;
+
+        var btnD = document.querySelector("#desencriptar");
+        btnD.onclick=desencriptar;
+        
+        var btnCopiar = document.querySelector("#copiar");
+        btnCopiar.onclick=copiarResultado;
+
+        var btnL = document.querySelector("#limpiarTexto");
+        btnL.onclick=limpiarTexto;
+
+    </script>
+
+
+</html>
+
