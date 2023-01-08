@@ -18,7 +18,7 @@ function soloLetras(texto){
 
         if(letras.indexOf(tecla) == -1 && !teclaEspecial){
 
-            swal("ALERTA","Debe ingresar solo letras en minúsculas, sin acentos y/o caracteres especiales.", "error");
+            alert("Debe ingresar solo letras en minúsculas, sin acentos y/o caracteres especiales.");
             return false;
 
         }  
@@ -62,6 +62,7 @@ function desencriptar(){
     document.getElementById("copiar").style.display="inherit";
 
     document.getElementById("desencriptar").disabled = true;
+    document.getElementById("limpiarTexto").disabled = false; 
     document.getElementById("textoEncriptar").focus();    
 
 }
@@ -84,8 +85,6 @@ function limpiarTexto(){
     document.getElementById("textoEncriptar").value="";
     document.getElementById("textoEncriptar").focus();
     document.getElementById("desencriptar").disabled = false;
-    document.getElementById("limpiarTexto").disabled = true;
-   
-
+    document.getElementById("limpiarTexto").disabled = true; 
 
 }
