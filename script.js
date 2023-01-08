@@ -1,7 +1,33 @@
+function soloLetras(texto){
+
+        key = texto.keyCode || texto.which;
+        tecla = String.fromCharCode(key).toString();
+        letras = "abcdefghijklmnñopqrstuvwxyz"
+
+
+        teclasEspeciales = [8,13,32];
+        teclaEspecial = false;
+        for (var x = 0; x < teclasEspeciales.length; x += 1){
+
+            if(key == teclasEspeciales[x]){
+
+                    teclaEspecial = true;
+                    break;         }
+        }
+
+
+        if(letras.indexOf(tecla) == -1 && !teclaEspecial){
+
+            swal("ALERTA","Debe ingresar solo letras en minúsculas, sin acentos y/o caracteres especiales.", "error");
+            return false;
+
+        }  
+}
+
 function encriptar(){
 
-    var encriptarTexto = document.getElementById("textoEncriptar").value.toLowerCase();
-
+      
+    var encriptarTexto = document.getElementById("textoEncriptar").value;
     var textEncriptado = encriptarTexto.replace(/e/img, "enter");
     var textEncriptado = textEncriptado.replace(/o/img, "ober");
     var textEncriptado = textEncriptado.replace(/i/img, "imes");
@@ -21,7 +47,7 @@ function encriptar(){
 
 function desencriptar(){
 
-    var desencriptarTexto = document.getElementById("textoEncriptar").value.toLowerCase();
+    var desencriptarTexto = document.getElementById("textoEncriptar").value;
 
     var textoDesencriptado = desencriptarTexto.replace(/enter/img, "e");
     var textoDesencriptado = textoDesencriptado.replace(/ober/img, "o");
@@ -36,8 +62,7 @@ function desencriptar(){
     document.getElementById("copiar").style.display="inherit";
 
     document.getElementById("desencriptar").disabled = true;
-    document.getElementById("textoEncriptar").focus();
-    
+    document.getElementById("textoEncriptar").focus();    
 
 }
 
@@ -49,6 +74,7 @@ function copiarResultado(){
     alert("Se copió el texto para desencriptar")
     document.getElementById("textoEncriptar").value="";
     document.getElementById("textoEncriptar").focus();
+     
 
 }
 
@@ -57,9 +83,9 @@ function limpiarTexto(){
 
     document.getElementById("textoEncriptar").value="";
     document.getElementById("textoEncriptar").focus();
-    document.getElementById("desencriptar").disabled = true;
+    document.getElementById("desencriptar").disabled = false;
     document.getElementById("limpiarTexto").disabled = true;
-
+   
 
 
 }
