@@ -25,7 +25,7 @@ function encriptar(){
 
    /* document.getElementById("imgDesencriptar").style.display="none";
     document.getElementById("textoDesencriptar").style.display="none";*/
-    document.getElementById("resultadoEncriptado").value = textEncriptado;
+    document.getElementById("resultadoEncriptado").innerHTML = textEncriptado;
     document.getElementById("copiar").style.display="show";
     document.getElementById("copiar").style.display="inherit";
     
@@ -46,7 +46,7 @@ function desencriptar(){
 
     /*document.getElementById("imgDesencriptar").style.display="none";
     document.getElementById("textoDesencriptar").style.display="none";*/
-    document.getElementById("resultadoEncriptado").value = textoDesencriptado;
+    document.getElementById("resultadoEncriptado").innerHTML = textoDesencriptado;
     document.getElementById("copiar").style.display="show";
     document.getElementById("copiar").style.display="inherit";
 
@@ -73,7 +73,7 @@ function limpiarTexto(){
 
     document.getElementById("textoEncriptar").value="";
     document.getElementById("textoEncriptar").focus();
-    document.getElementById("resultadoEncriptado").value=""; 
+    /*document.getElementById("resultadoEncriptado").value=""; */
     document.getElementById("desencriptar").disabled = false;
     document.getElementById("limpiarTexto").disabled = true; 
 
