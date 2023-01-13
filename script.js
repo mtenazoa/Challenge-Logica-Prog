@@ -1,4 +1,7 @@
-function soloLetras(texto){
+
+
+
+/* function soloLetras(texto){
 
         key = texto.keyCode || texto.which;
         tecla = String.fromCharCode(key).toString();
@@ -22,9 +25,47 @@ function soloLetras(texto){
             return false;
 
         }  
+} */
+
+
+
+function eliminarAcentos()
+{
+
+    var texto = document.getElementById("textoEncriptar").value;
+   	var chars={
+        
+		"á":"a", "é":"e", "í":"i", "ó":"o", "ú":"u",
+		"à":"a", "è":"e", "ì":"i", "ò":"o", "ù":"u",
+		"Á":"A", "É":"E", "Í":"I", "Ó":"O", "Ú":"U",
+		"À":"A", "È":"E", "Ì":"I", "Ò":"O", "Ù":"U"}
+
+	var expr=/[áàéèíìóòúùñ]/ig;
+
+    	var resultado=texto.replace(expr,function(e){return chars[e]});
+
+        document.getElementById("textoEncriptar").innerHTML = resultado;
 }
 
+
+
+
 function encriptar(){
+
+
+    var texto = document.getElementById("textoEncriptar").value.toLowerCase();
+   	var chars={
+        
+		"á":"a", "é":"e", "í":"i", "ó":"o", "ú":"u",
+		"à":"a", "è":"e", "ì":"i", "ò":"o", "ù":"u",
+		"Á":"A", "É":"E", "Í":"I", "Ó":"O", "Ú":"U",
+		"À":"A", "È":"E", "Ì":"I", "Ò":"O", "Ù":"U"}
+
+	var expr=/[áàéèíìóòúùñ]/ig;
+
+    var resultado=texto.replace(expr,function(e){return chars[e]});
+
+    document.getElementById("textoEncriptar").value = resultado;
 
       
     var encriptarTexto = document.getElementById("textoEncriptar").value;
@@ -36,7 +77,7 @@ function encriptar(){
 
    /* document.getElementById("imgDesencriptar").style.display="none";
     document.getElementById("textoDesencriptar").style.display="none";*/
-    document.getElementById("resultadoEncriptado").innerHTML = textEncriptado;
+    document.getElementById("resultadoEncriptado").value = textEncriptado;
     document.getElementById("copiar").style.display="show";
     document.getElementById("copiar").style.display="inherit";
     
@@ -57,7 +98,7 @@ function desencriptar(){
 
     /*document.getElementById("imgDesencriptar").style.display="none";
     document.getElementById("textoDesencriptar").style.display="none";*/
-    document.getElementById("resultadoEncriptado").innerHTML = textoDesencriptado;
+    document.getElementById("resultadoEncriptado").value = textoDesencriptado;
     document.getElementById("copiar").style.display="show";
     document.getElementById("copiar").style.display="inherit";
 
@@ -73,7 +114,7 @@ function copiarResultado(){
     textoCopiar.select();
     document.execCommand("copy");
     alert("Se copió el texto para desencriptar")
-    document.getElementById("textoEncriptar").value="";
+    document.getElementById("textoEncriptar").value="";     
     document.getElementById("textoEncriptar").focus();
      
 
@@ -84,6 +125,7 @@ function limpiarTexto(){
 
     document.getElementById("textoEncriptar").value="";
     document.getElementById("textoEncriptar").focus();
+    document.getElementById("resultadoEncriptado").value=""; 
     document.getElementById("desencriptar").disabled = false;
     document.getElementById("limpiarTexto").disabled = true; 
 
